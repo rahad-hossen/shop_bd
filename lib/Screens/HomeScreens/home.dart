@@ -22,6 +22,51 @@ class _homeState extends State<home> {
   List<Color> ColorCatagory = [Colors.yellow.shade300, Colors.orange.shade300, Colors.indigoAccent.shade200,
   Colors.white, Colors.redAccent.shade200];
 
+  List<Map<String,dynamic>> products = [
+    {
+      "id": 0,
+      "image" : "product1.jpg",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 4000
+    },
+    {
+      "id": 1,
+      "image" : "product2.png",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 500
+    },
+    {
+      "id": 2,
+      "image" : "product3.jpg",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 850
+    },
+    {
+      "id": 3,
+      "image" : "product4.jpg",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 1120
+    },
+    {
+      "id": 4,
+      "image" : "product5.avif",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 300
+    },{
+      "id": 1,
+      "image" : "product2.png",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 500
+    },
+    {
+      "id": 3,
+      "image" : "product4.jpg",
+      "title" : "An amazing camera for photography and videography for professional persion",
+      "amount": 1120
+    },
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,12 +147,8 @@ class _homeState extends State<home> {
             physics: NeverScrollableScrollPhysics(),
             children: [
               //An amazing Camera for videography & Photography. For a person its very productive product.
-
-              ProductInCard(image: "product1.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 400),
-              ProductInCard(image: "product2.png", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 600),
-              ProductInCard(image: "product3.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1000),
-              ProductInCard(image: "product4.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1400),
-              ProductInCard(image: "product5.avif", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1400),
+              for(var product in products)
+                ProductInCard(image: "${product["image"]}", title: "${product["title"]}", amount: product["amount"] ),
             ],
 
           )
