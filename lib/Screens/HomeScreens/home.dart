@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_bd/Screens/HomeScreens/Widget/Search_widget.dart';
 import 'package:shop_bd/Screens/HomeScreens/Widget/banner_widget.dart';
+import 'package:shop_bd/Screens/HomeScreens/Widget/current_banner.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -13,7 +14,7 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
 
   List<String> bannerList = ["discount_image.jpg", "banner_image2.avif", "banner_image3.jpg", "banner_image4.avif"];
-
+  int current_index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +44,34 @@ class _homeState extends State<home> {
           SizedBox(
             height: 200,
             child: PageView(
+              onPageChanged: (value){
+                setState(() {
+                  current_index = value;
+                });
+
+              },
               children:[
-                for( String banner in bannerList)
-                  banner("lib/assets/Images/banner"),
+                for( String bannerlist in bannerList)
+                  banner("lib/assets/Images/$bannerlist"),
+
               ]
             ),
+          ),
+
+          SizedBox(
+            height: 40,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+                for (int index = 0; index <bannerList.length; index++)
+                  current_index == index? CurrentBanner(12.0): CurrentBanner(8.0),
+
+              ],
+            ),
           )
+
+
 
 
         ],
