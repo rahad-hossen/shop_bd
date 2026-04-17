@@ -25,7 +25,7 @@ class ProductInCard extends StatelessWidget {
               spacing: 5,
               children: [
                 Text("$title",maxLines: 2,overflow: TextOverflow.ellipsis,),
-                Text("BDT. $amount", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),)
+                Text("BDT. $amount", style: TextStyle(fontWeight: FontWeight.bold),)
               ],
             ),
           )

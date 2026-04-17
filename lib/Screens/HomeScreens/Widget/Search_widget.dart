@@ -12,9 +12,12 @@ class SearchCard extends StatelessWidget {
         decoration: InputDecoration(
             hintText: "Search",
             border: InputBorder.none,
+            hintStyle: TextStyle(fontWeight: FontWeight.w300),
             contentPadding: EdgeInsets.all(15),
             prefixIcon: Icon(CupertinoIcons.search),
-            suffixIcon: Icon(Icons.filter_list)
+            prefixIconColor: Colors.grey,
+            suffixIcon: Icon(Icons.filter_list),
+          suffixIconColor: Colors.grey
         ),
       ),
     );

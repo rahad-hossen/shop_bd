@@ -116,7 +116,7 @@ class _homeState extends State<home> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 for (int index = 0; index <bannerList.length; index++)
-                  current_index == index? CurrentBanner(12.0): CurrentBanner(8.0),
+                  current_index == index? CurrentBanner(12.0,color: Colors.grey,): CurrentBanner(8.0,color: Colors.grey.shade400,),
               ],
             ),
           ),
@@ -139,6 +139,7 @@ class _homeState extends State<home> {
               ],
             ),
           ),
+          // product in card section
           GridView.count(
             crossAxisCount: 2,
             mainAxisSpacing: 5,

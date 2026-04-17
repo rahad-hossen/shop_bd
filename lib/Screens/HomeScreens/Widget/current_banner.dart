@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 class CurrentBanner extends StatefulWidget {
   final double height;
-  const CurrentBanner(this.height);
+  final Color color;
+  const CurrentBanner(this.height, {required this.color});
 
   @override
   State<CurrentBanner> createState() => _CurrentBannerState();
@@ -16,7 +17,7 @@ class _CurrentBannerState extends State<CurrentBanner> {
       width: 15,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.grey
+          color: widget.color,
       ),
     );
   }
