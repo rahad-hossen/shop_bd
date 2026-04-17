@@ -10,7 +10,8 @@ class CurrentBanner extends StatefulWidget {
 class _CurrentBannerState extends State<CurrentBanner> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(microseconds: 300),
       height: widget.height,
       width: 15,
       decoration: BoxDecoration(

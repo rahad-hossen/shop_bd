@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_bd/Screens/HomeScreens/Widget/Search_widget.dart';
 import 'package:shop_bd/Screens/HomeScreens/Widget/banner_widget.dart';
+import 'package:shop_bd/Screens/HomeScreens/Widget/catagories_list.dart';
 import 'package:shop_bd/Screens/HomeScreens/Widget/current_banner.dart';
+import 'package:shop_bd/Screens/HomeScreens/Widget/product_in_card.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -15,6 +17,10 @@ class _homeState extends State<home> {
 
   List<String> bannerList = ["discount_image.jpg", "banner_image2.avif", "banner_image3.jpg", "banner_image4.avif"];
   int current_index = 0;
+  List<String> ItemList = ["Fasion", "Resturant", "Book", "Circuit", "Couch"];
+  List<String> ItemImage = ["fashion.png", "restaurant.png", "book.png", "circuit.png", "couch.png"];
+  List<Color> ColorCatagory = [Colors.yellow.shade300, Colors.orange.shade300, Colors.indigoAccent.shade200,
+  Colors.white, Colors.redAccent.shade200];
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +47,7 @@ class _homeState extends State<home> {
         children: [
           SearchCard(),
 
+          // Banner section start
           SizedBox(
             height: 200,
             child: PageView(
@@ -63,13 +70,48 @@ class _homeState extends State<home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 for (int index = 0; index <bannerList.length; index++)
                   current_index == index? CurrentBanner(12.0): CurrentBanner(8.0),
-
               ],
             ),
+          ),
+          // Catagory Title
+          SizedBox(
+            height: 60,
+            child: ListTile(
+              title: Text("Catagories"),
+              trailing: Text("SHOW ALL", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo),),
+            ),
+          ),
+          // catagory section..
+          SizedBox(
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                for (int i = 0; i<ItemList.length; i++)
+                  CatagoriesList(image: ItemImage[i], title: ItemList[i], color: ColorCatagory[i]),
+              ],
+            ),
+          ),
+          GridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              //An amazing Camera for videography & Photography. For a person its very productive product.
+
+              ProductInCard(image: "product1.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 400),
+              ProductInCard(image: "product2.png", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 600),
+              ProductInCard(image: "product3.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1000),
+              ProductInCard(image: "product4.jpg", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1400),
+              ProductInCard(image: "product5.avif", title: "An amazing Camera for videography & Photography. For a person its very productive product.", amount: 1400),
+            ],
+
           )
+
 
 
 
